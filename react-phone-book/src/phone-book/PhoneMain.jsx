@@ -4,9 +4,9 @@ import PhoneList from "./PhoneList";
 
 const PhoneMain = () => {
   const [phoneBook, setPhoneBook] = useState([
-    { id: 1, name: "이몽룡", number: "222" },
-    { id: 2, name: "배수지", number: "222" },
-    { id: 3, name: "띠용", number: "222" },
+    { id: 1, name: "이몽룡", number: "010-111" },
+    { id: 2, name: "성춘향", number: "010-222" },
+    { id: 3, name: "장보고", number: "010-333" },
   ]);
   return (
     <>
@@ -15,5 +15,4 @@ const PhoneMain = () => {
     </>
   );
 };
-
 export default PhoneMain;

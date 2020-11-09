@@ -1,5 +1,4 @@
 import React from "react";
-
 const PhoneInsert = () => {
   return (
     <form>
@@ -9,4 +8,5 @@ const PhoneInsert = () => {
     </form>
   );
 };
+
 export default PhoneInsert;

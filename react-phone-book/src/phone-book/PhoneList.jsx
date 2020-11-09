@@ -1,8 +1,8 @@
 import React from "react";
-// (props) : 전달받은 매개변수 모두를 사용하겠다
-// {변수명} : 전달받은 매개변수 중 변수명에 해당하는 값만 추출해달라
+// (props) 전달받은 매개변수 모두를 사용하겠다.
+// { 변수명 } : 전달받은 매개변수중 변수명에 해당하는 값만 추출해달라
 const PhoneList = ({ phoneBook }) => {
-  const phoneItems = phoneBook.map((phone) => {
+  const phoneItems = phoneBook.map((call) => {
     return (
       <tr>
         <td>{phone.name}</td>
@@ -10,7 +10,6 @@ const PhoneList = ({ phoneBook }) => {
       </tr>
     );
   });
-
   return (
     <table>
       <tr>
