@@ -14,15 +14,16 @@ class BucketItem extends Component {
     const { bucket, handleFlagClick, updateBucket } = this.props;
 
     /**
-     * 이벤트 핸들러 등록 주의!!!
-     * 이벤트 핸들러를 등록할 때 아래와 같이 등록해 버리면
-     * onClick={handleClick(값)}
+     * 이벤트 핸들러 등록 주의!!
+     * 이벤트 핸들러를 등록할때 아래와 같이 등록해 버리면
+     * onClick={ handleClick(값) }
      * 이 코드는 이벤트 핸들러를 등록하는 것이 아니라 즉시 실행코드가 되어 버린다
-     * 즉, 데이터가 redering 될 때  데이터의 개수만큼 반복적으로
+     * 즉, 데이터가 rendering될때 데이터의 개수만큼 반복적으로
      * 함수가 즉시 호출되어 문제가 발생한다.
      *
-     * 이벤트 핸들러에게 어떤 값을 전달하고 싶을 때는 callback방식으로 전달해야 한다
-     * onClick=>{()=>handleClick(값)}
+     * 이벤트 핸들러에게 어떤 값을 전달하고 싶을때는 callback 방식으로 전달해야 한다
+     * onClick=>{ ()=>{ handleClick(값) } }
+     *
      */
     return (
       <tr>
@@ -37,6 +38,7 @@ class BucketItem extends Component {
         <td>
           <Moment format="YYYY-MM-DD HH:mm:ss">{bucket.b_start_date}</Moment>
         </td>
+
         {this.state.isEdit ? (
           <td>
             <input
@@ -56,7 +58,7 @@ class BucketItem extends Component {
           <td
             onClick={(e) => {
               if (bucket.b_cancel) {
-                alert("취소된 버킷은 수정할 수 없음");
+                alert("취소된 버킷은 수정할수 없음");
                 return false;
               }
               this.setState({ isEdit: true });
@@ -94,8 +96,8 @@ class BucketItem extends Component {
           <input
             type="checkbox"
             checked={bucket.b_cancel}
-            //value={bucket.b_cancel}
-            onChange={(e) => {
+            // value={bucket.b_cancel}
+            onClick={(e) => {
               this.props.handleCancel(bucket.b_id);
             }}
           />
@@ -104,5 +106,4 @@ class BucketItem extends Component {
     );
   }
 }
-
 export default BucketItem;
