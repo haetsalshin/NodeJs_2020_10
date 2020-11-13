@@ -3,6 +3,10 @@ const express = require("express");
 const path = require("path");
 const cookieParser = require("cookie-parser");
 const logger = require("morgan");
+// index.js파일이 models파일 안에 있으면 그걸을 import해라
+// ./models/index.js 파일을 require하라
+const seqDB = require("./models").sequelize;
+seqDB.sync();
 
 const indexRouter = require("./routes/index");
 const usersRouter = require("./routes/users");
