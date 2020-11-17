@@ -1,0 +1,25 @@
+table.carList {
+  width: 90%;
+  margin: 10px auto;
+  border: none;
+  border-collapse: collapse;
+  font-size: 1rem;
+}
+
+table.carList td,
+table.carList th {
+  border: 1px solid #777;
+  padding: 8px;
+  cursor: pointer;
+}
+
+table.carList th {
+  background-color: #999;
+  color: black;
+}
+
+table.carList input {
+  padding: 10px;
+  outline: none;
+  text-align: center;
+}

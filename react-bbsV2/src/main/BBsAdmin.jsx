@@ -11,4 +11,3 @@ class BBsAdmin extends Component {
 }
 
 export default BBsAdmin;
-<h3>Admin Notice</h3>;

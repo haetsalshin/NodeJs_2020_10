@@ -1,12 +1,7 @@
 import React, { Component } from "react";
 import "../css/BBsInsert.css";
-import axios from "axios";
 
 class BBsInsert extends Component {
-  // constructor(props) {
-  //   super(props);
-  //   this.state = props.bbsData;
-  // }
   state = {
     b_writer: "",
     b_subject: "",
@@ -14,31 +9,21 @@ class BBsInsert extends Component {
     isUpdate: false,
     b_id: 0,
   };
+
+  componentDidUpdate(proPropsm, preState) {
+    if (this.props.bbsData.b_id !== this.state.b_id) {
+      this.setState({ ...this.props.bbsData });
+    }
+  }
+
   handleOnChange = (e) => {
     this.setState({ [e.target.name]: e.target.value });
   };
-
-  // axios를 통해서 post로 데이터를 주고 받을 것임
-  bbsSave = () => {
-    const { insertURL, updateURL } = this.props;
-    const url = this.state.isUpdate ? updateURL : insertURL;
-    axios
-      .post(url, {
-        b_id: this.state.b_id,
-        b_writer: this.state.b_writer,
-        b_subject: this.state.b_subject,
-        b_content: this.state.b_content,
-      })
-      .then((result) => console.log(result))
-      .catch((err) => console.log(err));
-  };
-
   render() {
-    if (this.props.bbsData.isUpdate) {
-      this.state = this.props.bbsData;
-      console.log("update");
-    }
-    const { b_writer, b_subject, b_content } = this.state;
+    const { bbsSave } = this.props;
+    const { state, handleOnChange } = this;
+    const { b_writer, b_subject, b_content } = state;
+
     return (
       <div className="bbs-insert">
         <input
@@ -60,7 +45,7 @@ class BBsInsert extends Component {
           placeholder="내용을 입력하세요"
         />
 
-        <button onClick={this.bbsSave}>저장</button>
+        <button onClick={() => bbsSave(this.state)}>저장</button>
       </div>
     );
   }

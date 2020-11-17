@@ -3,12 +3,17 @@ body {
   width: 100%;
 }
 
+@import url("https://fonts.googleapis.com/css2?family=Gugi&display=swap");
+
 * {
   box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
 .App {
   text-align: center;
+  font-family: "Gugi", cursive;
 }
 
 .App-header {
